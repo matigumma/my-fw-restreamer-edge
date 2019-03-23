@@ -2,6 +2,7 @@
 Dockerfile*
 .git
 .gitignore
+_config.yml
 /docs
 *.md
 *.env
