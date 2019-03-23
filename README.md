@@ -1,3 +1,6 @@
+Este es un mod propio para gestionar mis camaras y entender el funcionamiento de docker + nginx / rtmp + ffmpeg
+
+
 # Restreamer-Edge
 
 This is an stable working concept to create a streaming service in front of the [Datarhei/Restreamer](https://github.com/datarhei/restreamer).
