@@ -102,6 +102,7 @@ ADD templates /templates
 ADD favicon.ico /usr/local/nginx/html/favicon.ico
 ADD run.sh /run.sh
 ADD snapshot.sh /snapshot.sh
+ADD camaras.sh /camaras.sh
 RUN mkdir /usr/local/nginx/conf/vhost && \
     mkdir /usr/local/nginx/conf/vhost/www && \
     mkdir /usr/local/nginx/conf/vhost/rtmp && \
@@ -109,12 +110,13 @@ RUN mkdir /usr/local/nginx/conf/vhost && \
     chmod 777 /usr/local/nginx/html/images && \
     chmod +x /run.sh && \
     chmod +x /snapshot.sh && \
+    chmod +x /camaras.sh && \
     chmod 777 /snapshot.sh
 
 ENV WORKER_PROCESSES=1 \
     WORKER_CONNECTIONS=1024 \
     
-    RTMP_ACCESS_LOG=off \
+    RTMP_ACCESS_LOG=on \
 
     RTMP_SRV_PORT=1935 \
     RTMP_SRV_TIMEOUT=60s \
@@ -151,7 +153,7 @@ ENV WORKER_PROCESSES=1 \
     RTMP_SRV_APP_HLS_TRANSCODING=false \
     RTMP_SRV_APP_HLS_TRANSCODING_PROFILES=240p,360p,480p,720p,native \
     
-    RTMP_PUBLISH_TOKEN=datarhei \
+    RTMP_PUBLISH_TOKEN=y45rs2c5r2t4k2n \
 
     HTTP_SENDFILE=on \
     HTTP_TCP_NOPUSH=on \
@@ -162,7 +164,7 @@ ENV WORKER_PROCESSES=1 \
     HTTP_SRV_LOC_HLS_ACCESS_CONTROL_ALLOW_ORIGIN=* \
     
     HTTP_AUTH_USERNAME=admin \
-    HTTP_AUTH_PASSWORD=datarhei \
+    HTTP_AUTH_PASSWORD=fw19 \
     
     HTTPS_SRV=false \
     HTTPS_SRV_PORT=443 \
@@ -173,14 +175,14 @@ ENV WORKER_PROCESSES=1 \
     
     PLAYER_CREATE=true \
     
-    PLAYER_WATERMARK_SOURCE=none \
+    PLAYER_WATERMARK_SOURCE=http://freewaves.live/wp-content/uploads/logo_blanco.png \
     PLAYER_WATERMARK_POSITION=top-right \
     PLAYER_WATERMARK_LINK=none \
 
-    PLAYER_COLOR_BUTTONS=3daa48 \
-    PLAYER_COLOR_SEEKBAR=3daa48 \
+    PLAYER_COLOR_BUTTONS=008cc8 \
+    PLAYER_COLOR_SEEKBAR=008cc8 \
 
-    PLAYER_GA_ACCOUNT=none \
-    PLAYER_GA_TRACKERNAME=datarheiEdge
+    PLAYER_GA_ACCOUNT=UA-123642441-1 \
+    PLAYER_GA_TRACKERNAME=freewaveslive
 
 CMD ["/run.sh"]
